@@ -79,8 +79,6 @@ const profile = reactive<Profile>({
 const links = ref<Link[]>([
   {
     id: 1,
-    url: 'https://blog.ejemplo.com',
-    icon: 'blog'
     title: 'Facebook',
     url: 'https://www.facebook.com/Artesanmi',
     icon: 'facebook'
