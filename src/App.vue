@@ -45,10 +45,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 import LinkButton from './components/LinkButton.vue'
 import SocialIcon from './components/SocialIcon.vue'
-
+import avatarImg from './assets/avatar.jpg'
 interface Link {
   id: number
   title: string
@@ -70,67 +70,26 @@ interface Profile {
 
 // Profile data
 const profile = reactive<Profile>({
-  name: 'María García',
-  bio: '✨ Creadora de contenido | 🚀 Emprendedora | 💜 Amante del diseño',
-  avatar: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&dpr=1'
+  name: 'Artesa',
+  bio: '✨ papelería creativa. | 🌟El arte de la imaginación.',
+  avatar: avatarImg
 })
 
 // Main links
 const links = ref<Link[]>([
   {
     id: 1,
-    title: 'Mi Blog Personal',
     url: 'https://blog.ejemplo.com',
     icon: 'blog'
-  },
-  {
-    id: 2,
-    title: 'Tienda Online',
-    url: 'https://tienda.ejemplo.com',
-    icon: 'shop'
-  },
-  {
-    id: 3,
-    title: 'Curso de Diseño',
-    url: 'https://curso.ejemplo.com',
-    icon: 'course'
-  },
-  {
-    id: 4,
-    title: 'Newsletter Gratuito',
-    url: 'https://newsletter.ejemplo.com',
-    icon: 'newsletter'
-  },
-  {
-    id: 5,
-    title: 'Consultoría 1:1',
-    url: 'https://consultoria.ejemplo.com',
-    icon: 'consulting'
+    title: 'Facebook',
+    url: 'https://www.facebook.com/Artesanmi',
+    icon: 'facebook'
   }
 ])
 
 // Social links
 const socialLinks = ref<SocialLink[]>([
-  {
-    platform: 'Instagram',
-    url: 'https://instagram.com/usuario',
-    icon: 'instagram'
-  },
-  {
-    platform: 'Twitter',
-    url: 'https://twitter.com/usuario',
-    icon: 'twitter'
-  },
-  {
-    platform: 'YouTube',
-    url: 'https://youtube.com/usuario',
-    icon: 'youtube'
-  },
-  {
-    platform: 'LinkedIn',
-    url: 'https://linkedin.com/in/usuario',
-    icon: 'linkedin'
-  }
+
 ])
 
 // Methods
@@ -142,7 +101,12 @@ const handleImageError = (event: Event) => {
 const trackClick = (linkTitle: string) => {
   console.log(`Clicked on: ${linkTitle}`)
   // Aquí podrías agregar analytics
-}
+
+  }
+
+  onMounted(() => {
+      console.log(profile)
+    })
 </script>
 
 <style scoped>
