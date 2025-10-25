@@ -16,6 +16,10 @@ import InstagramIcon from './icons/InstagramIcon.vue'
 import TwitterIcon from './icons/TwitterIcon.vue'
 import YouTubeIcon from './icons/YouTubeIcon.vue'
 import LinkedInIcon from './icons/LinkedInIcon.vue'
+import TikTokIcon from './icons/TiktokIcon.vue'
+import WhatsAppIcon from './icons/WhatsAppIcon.vue'
+import FacebookIcon from './icons/FacebookIcon.vue'
+const props = defineProps<Props>()
 
 interface Props {
   platform: string
@@ -23,13 +27,15 @@ interface Props {
   icon: string
 }
 
-const props = defineProps<Props>()
 
 const iconComponents = {
   instagram: InstagramIcon,
   twitter: TwitterIcon,
   youtube: YouTubeIcon,
-  linkedin: LinkedInIcon
+  linkedin: LinkedInIcon,
+  tiktok: TikTokIcon,
+  whatsapp: WhatsAppIcon,
+  facebook: FacebookIcon
 }
 
 const iconComponent = computed(() => {

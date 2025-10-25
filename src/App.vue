@@ -82,12 +82,30 @@ const links = ref<Link[]>([
     title: 'Facebook',
     url: 'https://www.facebook.com/Artesanmi',
     icon: 'facebook'
+  },
+  {
+    id: 2,
+    title: 'WhatsApp',
+    url: 'https://wa.me/5217713469778',
+    icon: 'whatsapp'
   }
+
 ])
 
 // Social links
 const socialLinks = ref<SocialLink[]>([
-
+  {
+    id: 1,
+    title: 'Facebook',
+    url: 'https://www.facebook.com/Artesanmi',
+    icon: 'facebook'
+  },
+  {
+    id: 2,
+    title: 'WhatsApp',
+    url: 'https://wa.me/5217713469778',
+    icon: 'whatsapp'
+  }
 ])
 
 // Methods
