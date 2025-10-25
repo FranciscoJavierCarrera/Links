@@ -6,7 +6,7 @@
     class="link-button"
     @click="$emit('click')"
   >
-    <div class="icon-container">
+    <div class="icon-container" v-if="iconComponent">
       <component :is="iconComponent" class="icon" />
     </div>
     <span class="title">{{ title }}</span>
@@ -20,35 +20,54 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+
+// Íconos internos
 import BlogIcon from './icons/BlogIcon.vue'
 import ShopIcon from './icons/ShopIcon.vue'
 import CourseIcon from './icons/CourseIcon.vue'
 import NewsletterIcon from './icons/NewsletterIcon.vue'
 import ConsultingIcon from './icons/ConsultingIcon.vue'
 
-interface Props {
+// Íconos sociales (reutilizados del otro componente)
+import InstagramIcon from './icons/InstagramIcon.vue'
+import TwitterIcon from './icons/TwitterIcon.vue'
+import YouTubeIcon from './icons/YouTubeIcon.vue'
+import LinkedInIcon from './icons/LinkedInIcon.vue'
+import TikTokIcon from './icons/TiktokIcon.vue'
+import WhatsAppIcon from './icons/WhatsAppIcon.vue'
+import FacebookIcon from './icons/FacebookIcon.vue'
+
+const props = defineProps<{
   title: string
   url: string
-  icon: string
-}
-
-defineEmits<{
-  click: []
+  icon?: string
 }>()
 
+defineEmits<{ click: [] }>()
+
+// Mezclamos todos los íconos
 const iconComponents = {
+  // Íconos internos
   blog: BlogIcon,
   shop: ShopIcon,
   course: CourseIcon,
   newsletter: NewsletterIcon,
-  consulting: ConsultingIcon
+  consulting: ConsultingIcon,
+
+  // Íconos sociales
+  instagram: InstagramIcon,
+  twitter: TwitterIcon,
+  youtube: YouTubeIcon,
+  linkedin: LinkedInIcon,
+  tiktok: TikTokIcon,
+  whatsapp: WhatsAppIcon,
+  facebook: FacebookIcon
 }
 
 const iconComponent = computed(() => {
-  return iconComponents[props.icon as keyof typeof iconComponents] || BlogIcon
+  const iconKey = props.icon?.toLowerCase() || ''
+  return iconComponents[iconKey as keyof typeof iconComponents] || null
 })
-
-const props = defineProps<Props>()
 </script>
 
 <style scoped>
