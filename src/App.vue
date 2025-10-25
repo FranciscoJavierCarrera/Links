@@ -96,14 +96,12 @@ const links = ref<Link[]>([
 const socialLinks = ref<SocialLink[]>([
 
   {
-    id: 1,
-    title: 'Facebook',
+    platform: 'Facebook',
     url: 'https://www.facebook.com/Artesanmi',
     icon: 'facebook'
   },
   {
-    id: 2,
-    title: 'WhatsApp',
+    platform: 'WhatsApp',
     url: 'https://wa.me/5217713469778',
     icon: 'whatsapp'
   }
